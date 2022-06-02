@@ -4,7 +4,7 @@ module.exports = {
     node: true,
     mocha: true,
   },
-  extends: ["eslint:recommended", "react-app", "react-app/jest", "prettier"],
+  extends: ["eslint:recommended", "prettier"],
   parserOptions: {
     ecmaVersion: 2018,
     sourceType: "module",
