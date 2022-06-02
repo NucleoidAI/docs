@@ -1,7 +1,7 @@
-import React from "react";
 import Footer from "../../components/Footer";
+import React from "react";
 
-export default function FooterWrapper(props) {
+export default function FooterWrapper() {
   return (
     <>
       <Footer />

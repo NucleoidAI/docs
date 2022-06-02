@@ -34,7 +34,7 @@ const config = {
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
         docs: {
-          routeBasePath: '/',
+          routeBasePath: "/",
           sidebarPath: require.resolve("./sidebars.js"),
           editUrl:
             "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/",
@@ -57,6 +57,10 @@ const config = {
       },
       navbar: {
         items: [
+          { to: "/docs", label: "HOME", position: "left" },
+          { to: "/docs", label: "GET STARTED", position: "left" },
+          { to: "/docs", label: "LEARN", position: "left" },
+          { to: "/docs", label: "API", position: "left" },
           {
             href: "https://dev.to/nucleoid",
             label: "BLOG",

@@ -2,9 +2,9 @@ module.exports = {
   env: {
     es6: true,
     node: true,
-    mocha: true,
+    browser: true,
   },
-  extends: ["eslint:recommended", "prettier"],
+  extends: ["eslint:recommended", "prettier", "plugin:react/recommended"],
   parserOptions: {
     ecmaVersion: 2018,
     sourceType: "module",
@@ -22,5 +22,10 @@ module.exports = {
         memberSyntaxSortOrder: ["none", "single", "multiple", "all"],
       },
     ],
+  },
+  settings: {
+    react: {
+      version: "detect",
+    },
   },
 };

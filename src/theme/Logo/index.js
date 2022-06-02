@@ -1,7 +1,7 @@
-import React from "react";
 import Link from "@docusaurus/Link";
+import React from "react";
 
-export default function LogoWrapper(props) {
+export default function LogoWrapper() {
   return (
     <>
       <div style={{ marginRight: 25 }}>

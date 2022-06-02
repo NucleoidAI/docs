@@ -1,6 +1,6 @@
-import React, { useEffect } from "react";
 import gtag from "../gtag";
 import log from "../libs/log";
+import { useEffect } from "react";
 
 function PageView({ title }) {
   useEffect(() => {

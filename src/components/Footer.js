@@ -1,12 +1,11 @@
-import { ReactComponent as DiscordIcon } from "../images/discord.svg";
 import GitHubIcon from "@mui/icons-material/GitHub";
+import React from "react";
 import TwitterIcon from "@mui/icons-material/Twitter";
 import WeekCalendar from "../components/WeekCalendar";
-import { Box, IconButton } from "@mui/material";
-import React from "react";
 import { makeStyles } from "@mui/styles";
+import { Box, IconButton } from "@mui/material";
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(() => ({
   footer: {
     color: "#a9a9a9",
     fontSize: 16,
