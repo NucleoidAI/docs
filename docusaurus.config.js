@@ -1,7 +1,5 @@
-// @ts-check
-// Note: type annotations allow type checking and IDEs autocompletion
-
 const lightCodeTheme = require("prism-react-renderer/themes/github");
+const darkCodeTheme = require("prism-react-renderer/themes/dracula");
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
@@ -9,21 +7,17 @@ const config = {
   tagline: "Low-code Framework for Node.js",
   url: "https://nucleoid.com/",
   baseUrl: "/docs/",
-  onBrokenLinks: "throw",
+  onBrokenLinks: "warn",
   onBrokenMarkdownLinks: "warn",
   favicon: "media/icon.png",
-
-  // GitHub pages deployment config.
-  // If you aren't using GitHub pages, you don't need these.
-  organizationName: "NucleoidJS", // Usually your GitHub org/user name.
-  projectName: "Nucleoid", // Usually your repo name.
-
+  organizationName: "NucleoidJS",
+  projectName: "Nucleoid",
   scripts: [
     {
       src: "https://www.googletagmanager.com/gtag/js?id=G-L9H12K94J4",
       async: true,
     },
-    "/test/gtag.js",
+    "/docs/gtag.js",
   ],
   stylesheets: [
     "https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap",
@@ -46,7 +40,6 @@ const config = {
       }),
     ],
   ],
-
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
@@ -57,24 +50,25 @@ const config = {
       },
       navbar: {
         items: [
-          { to: "/docs", label: "HOME", position: "left" },
-          { to: "/docs", label: "GET STARTED", position: "left" },
-          { to: "/docs", label: "LEARN", position: "left" },
-          { to: "/docs", label: "API", position: "left" },
+          { to: "/", label: "HOME", position: "left" },
+          { to: "/docs/get-started", label: "GET STARTED", position: "left" },
+          { to: "/docs/learn", label: "LEARN", position: "left" },
+          { to: "/docs/api", label: "API", position: "left" },
           {
             href: "https://dev.to/nucleoid",
             label: "BLOG",
             position: "left",
           },
           {
-            href: "https://github.com/facebook/docusaurus",
-            html: "<a href='/'>Star us on GitHub</a>",
+            href: "https://github.com/NucleoidJS/Nucleoid",
+            html: require("fs").readFileSync("./github.html", "utf8"),
             position: "right",
           },
         ],
       },
       prism: {
         theme: lightCodeTheme,
+        darkTheme: darkCodeTheme,
       },
     }),
 };
