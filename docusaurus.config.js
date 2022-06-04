@@ -12,6 +12,10 @@ const config = {
   favicon: "media/icon.png",
   organizationName: "NucleoidJS",
   projectName: "Nucleoid",
+  i18n: {
+    defaultLocale: "en",
+    locales: ["en"],
+  },
   scripts: [
     {
       src: "https://www.googletagmanager.com/gtag/js?id=G-L9H12K94J4",
