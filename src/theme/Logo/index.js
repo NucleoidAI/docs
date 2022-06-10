@@ -20,7 +20,7 @@ export default function LogoWrapper() {
         <span
           style={{
             fontFamily: "Roboto",
-            fontSize: "12px",
+            fontSize: "13px",
             fontWeight: "lighter",
             color: "#dfdfdf",
           }}

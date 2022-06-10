@@ -14,3 +14,7 @@
   color: #9a9da0;
   font-size: 14px;
 }
+
+th {
+  min-width: 200px;
+}
