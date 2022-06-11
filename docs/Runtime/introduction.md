@@ -1,3 +1,7 @@
+---
+sidebar_position: 1
+---
+
 # Introduction
 
 Nucleoid is an open source (Apache 2.0), runtime environment for declarative programming in JavaScript. Nucleoid runtime rerenders and tracks JavaScript statements in the graph and stores its state under a single process. This model dramatically reduces number of codes for the same job and since the runtime combines data and logic, external database is no longer needed.
@@ -12,7 +16,7 @@ nucleoid.run(() => {
 
 Once a variable is defined like ` var a = 1`, the runtime does 3 major things. First, it places the `var a` in the graph and makes the connection between dependent variables (In this case).
 
-![](../../static/media/variable-graph.png)
+![Variable Graph](../../static/media/variable-graph.drawio.png)
 
 Second, updates state with new values in order get affect
 
