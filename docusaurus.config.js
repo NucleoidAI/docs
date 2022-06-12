@@ -9,7 +9,7 @@ const config = {
   baseUrl: "/docs/",
   onBrokenLinks: "warn",
   onBrokenMarkdownLinks: "warn",
-  favicon: "media/icon.png",
+  favicon: "https://cdn.nucleoid.com/media/icon.png",
   organizationName: "NucleoidJS",
   projectName: "Nucleoid",
   i18n: {
