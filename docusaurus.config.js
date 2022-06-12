@@ -53,7 +53,7 @@ const config = {
       },
       navbar: {
         items: [
-          { to: "/", label: "HOME", position: "left" },
+          { to: "/docs/get-started", label: "HOME", position: "left" },
           { to: "/docs/get-started", label: "GET STARTED", position: "left" },
           { to: "/docs/learn", label: "LEARN", position: "left" },
           { to: "/docs/api", label: "API", position: "left" },
