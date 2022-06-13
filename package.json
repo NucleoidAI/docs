@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "scripts": {
     "docusaurus": "docusaurus",
-    "start": "docusaurus start --port 6000",
+    "start": "docusaurus start --port 5000",
     "build": "docusaurus build",
     "swizzle": "docusaurus swizzle",
     "deploy": "docusaurus deploy",
