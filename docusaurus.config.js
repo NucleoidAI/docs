@@ -63,6 +63,11 @@ const config = {
             position: "left",
           },
           {
+            href: "https://nucleoid.com/ide/",
+            html: require("fs").readFileSync("./ide.html", "utf8"),
+            position: "right",
+          },
+          {
             href: "https://github.com/NucleoidJS/Nucleoid",
             html: require("fs").readFileSync("./github.html", "utf8"),
             position: "right",

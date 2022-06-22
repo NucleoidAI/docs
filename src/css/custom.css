@@ -22,3 +22,21 @@ th {
 span.github {
   color: white;
 }
+
+.navbar__toggle {
+  color: #9a9da0;
+}
+
+.navbar-sidebar__back {
+  color: #9a9da0;
+}
+
+.ide-button {
+  padding: 6px 20px;
+  border-radius: 5px;
+  background: linear-gradient(135deg, rgba(0,141,114,1) 0%, rgba(32,153,88,1) 100%)
+}
+
+.ide-button-text {
+  color: white;
+}
