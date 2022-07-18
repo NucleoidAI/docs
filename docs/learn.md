@@ -257,41 +257,8 @@ const user = nucleoid.run((scope) => new User(scope.userId), scope);
 console.log(user);
 ```
 
-## HTTP Params, Query, Body
-
-HTTP details pass in req parameter as `req.body`, `req.query` and `req.params`:
-
-```javascript
-class User {
-  constructor(name) {
-    this.name = name;
-  }
-}
-nucleoid.register(User);
-
-app.post("/users", (req) => new User(req.body.name));
-
-app.get("/users", (req) => User.filter((u) => u.name == req.query.name));
-
-app.get("/users/:user", (req) => User[req.params.user]);
-```
-
 ## Terminal
 
 Nucleoid also opens terminal channel at `8448` port for queries like in SQL, so that you can write code snippet for data operations
 
 <img src="https://media.giphy.com/media/aGQyuZ4ggB4SaPRc1g/giphy.gif" alt="Terminal" width="350"/>
-
-## Express.js
-
-In the meanwhile, you can still access underlying Express APIs for non-Nucleoidic functions
-
-```javascript
-const app = nucleoid();
-
-const express = app.express();
-
-express.use("/static", express.static("public"));
-
-express.get("/test", (req, res) => res.send("Hello!"));
-```

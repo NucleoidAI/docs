@@ -17,7 +17,7 @@ const app = nucleoid();
 <hr/>
 <br/>
 
-### `app . get, post, put, delete ( path , fn )`
+### `app . get, post ( path , fn )`
 
 Creates routes
 

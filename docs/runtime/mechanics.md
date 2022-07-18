@@ -4,7 +4,32 @@ sidebar_position: 1
 
 # Mechanics
 
+There are 4 major components:
+
+- `$nuc`
+- graph
+- state
+- runtime-manage `fs`
+
 Nucleoid runtime is embedded in Node.js and once initialized, it accepts JavaScript codes in a function:
+
+## `$nuc`
+
+`$nuc` is an internal Just-in-time compiler. Although unlike traditional compiler, `$nuc` compiles the JS statements based on their condition in the context. For example, `a = 1` translated to `$VAR(a, 1)` as a placeholder, and turns into `$LET(a, 1)` or `$CONST(a, 1)` based on how is it defined in the context.
+
+## graph
+
+Each `$nuc` statement holds information regarding statement relations with other existing statements in the graph. For example `new User()` instance has a class adjacency to `class User {}`, which has adjacency to its instances.
+
+## state
+
+It is like a JS state, but it is managed by the runtime
+
+## Runtime-managed `fs`
+
+Important objectives of Nucleoid runtime manages the control flow with graph and store them in runtime managed `fs` so that the runtime doesn't require external database.
+
+## Example
 
 ```javascript
 const nucleoid = require("nucleoidjs");

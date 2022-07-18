@@ -1,5 +1,6 @@
 ---
-sidebar_position: 4
+sidebar_position: 7
+title: Runtime Environment
 ---
 
 # Runtime
@@ -8,36 +9,14 @@ sidebar_position: 4
 
 Nucleoid is an open source (Apache 2.0), runtime environment for declarative programming in JavaScript. Nucleoid runtime rerenders and tracks JavaScript statements in the graph and stores its state under a single process. This model dramatically reduces number of codes for the same job and since the runtime combines data and logic, external database is no longer needed.
 
-```javascript
-nucleoid.run(() => {
-  var a = 1;
-  var b = a + 2;
-  var c = b + 3;
-});
-```
+<br/>
 
-Once a variable is defined like ` var a = 1`, the runtime does 3 major things. First, it places the `var a` in the graph and makes the connection between dependent variables (In this case).
+> The main object of the Nucleoid project is to manage data and logic under the same process.
 
-![Variable Graph](../../static/media/variable-graph.drawio.png)
+<br/>
 
-Second, updates state with new values in order get affect
+<u>Applying declarative programming at the runtime</u> gives us ability to combine logic and data that organically reduces number of code lines as well as complexity of the system, which makes a great alternative to the low-code solution.
 
-|         | State |
-| ------- | ----- |
-| `var a` | 1     |
-| `var b` | 3     |
-| `var c` | 6     |
+## Nucleoid in a nutshell
 
-However, actual execution is different since variables are tracked in the graph.
-
-```javascript
-state.a = 1;
-state.b = state.a + 2;
-state.c = state.b + 3;
-```
-
-and finally stores statements in the runtime-managed `fs`
-
-The main objective of the project is completely eliminating technical codes so that developers can focus on business logic and bringing database features into the programming runtime.
-
-> If you consider, let's say `Order` object is the part of business logic, any codes lines not related with that, for example, managing connection, converting object to JSON etc. are considered technical codes.
+<img src="https://cdn.nucleoid.com/media/nucleoid-in-a-nutshell.jpg" alt="Nucleoid in a nutshell" width="400" />
