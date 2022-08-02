@@ -30,12 +30,10 @@ const StarUsMessageDialog = () => {
           position: "fixed",
           right: 0,
           bottom: 0,
-          //  width: 450,
           maxWidth: 450,
           margin: 15,
-
+          userSelect: "none",
           backgroundColor: "#f5f5f9",
-
           boxShadow: "1px 2px 3px 1px #aaaaaa",
           borderRadius: 5,
         }}
