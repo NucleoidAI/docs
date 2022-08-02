@@ -1,10 +1,10 @@
 import GitHubIcon from "@mui/icons-material/GitHub";
 import React from "react";
+import StarUsMessageDialog from "./StarUsMessageDialog";
 import TwitterIcon from "@mui/icons-material/Twitter";
 import WeekCalendar from "../components/WeekCalendar";
 import { makeStyles } from "@mui/styles";
 import { Box, IconButton } from "@mui/material";
-import StarUsMessageDialog from "./StarUsMessageDialog";
 
 const useStyles = makeStyles(() => ({
   footer: {
