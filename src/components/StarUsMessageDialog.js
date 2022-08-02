@@ -9,7 +9,7 @@ const StarUsMessageDialog = () => {
     if (!localStorage.getItem("landing_docs")) {
       timer = setTimeout(() => {
         setOpen(true);
-      }, 8000);
+      }, 16 * 1000);
     }
     return () => {
       clearTimeout(timer);
