@@ -4,6 +4,7 @@ import TwitterIcon from "@mui/icons-material/Twitter";
 import WeekCalendar from "../components/WeekCalendar";
 import { makeStyles } from "@mui/styles";
 import { Box, IconButton } from "@mui/material";
+import StarUsMessageDialog from "./StarUsMessageDialog";
 
 const useStyles = makeStyles(() => ({
   footer: {
@@ -47,6 +48,7 @@ function Footer() {
           </IconButton>
         </Box>
       </Box>
+      <StarUsMessageDialog />
     </footer>
   );
 }
