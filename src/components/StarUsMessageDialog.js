@@ -5,11 +5,13 @@ const StarUsMessageDialog = () => {
   const [open, setOpen] = React.useState(false);
 
   React.useEffect(() => {
+    let timer;
     if (!localStorage.getItem("landing_docs")) {
-      setTimeout(() => {
+      timer = setTimeout(() => {
         setOpen(true);
       }, 8000);
     }
+    return clearTimeout(timer);
   }, []);
 
   const handleClose = () => {
