@@ -11,7 +11,9 @@ const StarUsMessageDialog = () => {
         setOpen(true);
       }, 8000);
     }
-    return clearTimeout(timer);
+    return () => {
+      clearTimeout(timer);
+    };
   }, []);
 
   const handleClose = () => {
