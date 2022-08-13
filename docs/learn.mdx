@@ -118,7 +118,7 @@ app.get("/orders", () => {
 {
   "id": "order0",
   "item": "ITEM-123",
-  "qty": 1
+  "qty": 3
 }
 ```
 
@@ -132,7 +132,7 @@ app.post("/test", () => new Order("ITEM-123", 3));
 {
   "id": "order0",
   "item": "ITEM-123",
-  "qty": 1
+  "qty": 3
 }
 ```
 
@@ -154,7 +154,7 @@ app.post("/orders", () => {
 {
   "id": "order1",
   "item": "ITEM-123",
-  "qty": 1
+  "qty": 3
 }
 ```
 
@@ -200,7 +200,7 @@ app.get("/test", () => order1);
 {
   "id": "order1",
   "item": "ITEM-123",
-  "qty": 1,
+  "qty": 3,
   "details": "some details"
 }
 ```
