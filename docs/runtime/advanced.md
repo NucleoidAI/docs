@@ -8,7 +8,7 @@ Let's take a look at advanced example
 
 ```javascript
 class Order {
-  constructor(item,qty) {
+  constructor(item, qty) {
     this.item = item;
     this.qty = qty;
     this.date = Date.now();
