@@ -12,6 +12,7 @@ const config = {
   favicon: "https://cdn.nucleoid.com/media/icon.png",
   organizationName: "NucleoidJS",
   projectName: "Nucleoid",
+  titleDelimiter: "-",
   i18n: {
     defaultLocale: "en",
     locales: ["en"],

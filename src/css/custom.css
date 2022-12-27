@@ -44,3 +44,28 @@ span.github {
 .ide-button-text {
   color: white;
 }
+
+.neon {
+  display: inline;
+  color: #fff;
+  text-shadow: 0 0 2px #fff, 0 0 4px #fff, 0 0 6px #fff, 0 0 8px #0fa;
+  animation: flicker 60s infinite alternate;
+  font-size: 12px;
+}
+
+@keyframes flicker {
+  0%,
+  50%,
+  50.2%,
+  50.4%,
+  53.2%,
+  53.4%,
+  100% {
+    text-shadow: 0 0 2px #fff, 0 0 4px #fff, 0 0 6px #fff, 0 0 8px #0fa;
+  }
+  50.1%,
+  50.3%,
+  53.3% {
+    text-shadow: none;
+  }
+}
