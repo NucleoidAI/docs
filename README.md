@@ -20,9 +20,9 @@
 
 <br/>
 
-<center>
+<p align="center"> 
   <img src="https://cdn.nucleoid.com/media/nobel.png"/>
-</center>
+</p>
 
 <p align="center"> 
   Thanks to declarative programming, we have a brand-new approach to data and logic. As we are still discovering what we can do with this powerful programming model, please join us with any types of contribution!
