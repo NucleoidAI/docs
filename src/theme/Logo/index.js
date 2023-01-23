@@ -11,13 +11,7 @@ export default function LogoWrapper() {
           style={{
             fontFamily: "Roboto",
             fontSize: "22px",
-            background:
-              "linear-gradient(135deg, rgba(32,153,88,1) 0%, rgba(0,141,114,1) 100%)",
-            backgroundClip: "text",
-            WebkitBackgroundClip: "text",
-            MozBackgroundClip: "text",
-            WebkitTextFillColor: "transparent",
-            MozTextFillColor: "transparent",
+            color: "#209958",
           }}
         >
           Nucleoid
