@@ -6,7 +6,7 @@ sidebar_position: 1
 
 [![npm](https://img.shields.io/npm/v/nucleoidjs)](https://www.npmjs.com/package/nucleoidjs) [![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/nucleoidjs/nucleoid/test.yml?branch=main)](https://github.com/NucleoidJS/Nucleoid/actions/workflows/test.yml)
 
-Nucleoid runtime is embedded inside Node.js and installed through `npm` without requiring to install external database.
+In Nucleoid, the deterministic AI is used to track the statements in the code and create a graph of the relationships between variables, objects, and functions. The runtime is embedded inside Node.js and installed through `npm` without requiring to install external database.
 
 ```shell
 > npm install nucleoidjs
@@ -22,15 +22,46 @@ const app = nucleoid();
 Now, you can tie your business logic to API
 
 ```javascript
-// Creating an user
-app.post("/users", () => new User("Daphne"));
+class Item {
+  constructor(name, barcode) {
+    this.name = name;
+    this.barcode = barcode;
+  }
+}
+nucleoid.register(Item);
 
-// Getting the user
-app.get("/users", () => User.find((user) => user.name === "Daphne"));
+// Create an item with given name and barcode, but the barcode must be unique
+app.post("/items", (req) => {
+  const barcode = req.body.barcode;
+
+  const check = Item.find((i) => i.barcode === barcode);
+
+  if (check) {
+    throw "DUPLICATE_BARCODE";
+  }
+
+  return new Item(name, barcode);
+});
 ```
+
+That is all you need :heart:
+
+Nucleoid runtime builds an execution plan based on the dependencies in your business logic and store each transaction in built-in data store.
+
+<img src="https://cdn.nucleoid.com/media/graph.png" width="500"/>
 
 In final step, start the app with a port number:
 
 ```javascript
 app.listen(3000);
 ```
+
+## Nucleoid IDE: OpenAPI Integration
+
+Nucleoid IDE is a web interface that helps to run very same npm package with OpenAPI.
+
+[Go to Nucleoid IDE](https://nucleoid.com/ide/)
+
+![Nucleoid IDE 1](https://cdn.nucleoid.com/media/screenshot-1.png)
+
+![Nucleoid IDE 2](https://cdn.nucleoid.com/media/screenshot-2.png)
