@@ -6,7 +6,7 @@ sidebar_position: 1
 
 [![npm](https://img.shields.io/npm/v/nucleoidjs)](https://www.npmjs.com/package/nucleoidjs) [![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/nucleoidjs/nucleoid/test.yml?branch=main)](https://github.com/NucleoidJS/Nucleoid/actions/workflows/test.yml)
 
-Nucleoid is an implementation of symbolic AI for declarative (logic) programming at the runtime and tracks given statements in JavaScript and creates relationships between variables, objects, and functions etc. in the graph. The runtime is embedded inside Node.js and installed through `npm` without requiring to install external database.
+Nucleoid is an implementation of symbolic AI for declarative (logic-based) programming at the runtime and tracks given statements in JavaScript and creates relationships between variables, objects, and functions etc. in the graph. The runtime is embedded inside Node.js and installed through `npm` without requiring to install external database.
 
 ```shell
 > npm install nucleoidjs

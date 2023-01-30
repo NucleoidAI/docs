@@ -1,23 +1,21 @@
 ---
 sidebar_position: 4
-title: Built-in Datastore
+title: Built-in Data Store
 ---
 
 # Built-in Data Store
 
 ## Introduction
 
-One important objective of Nucleoid project is to combine logic and data under the same runtime. Nucleoid stores each transaction in built-in on-chain data store and streams out hashes (blocks) as completion of transactions. This model gives us fast computation since limiting IO process for transaction, but still ability to build up the same data in external databases or cloud services.
+One important objective of Nucleoid project is to combine logic and data under the same runtime. Nucleoid builds a knowledge graph and execution plan by rendering given statements and stores them in the built-in on-chain data store and streams out hashes (blocks) as completion of transactions. This model provides fast computation since limiting IO process for transaction, but still ability to build up the same data in external databases or cloud services.
 
-https://github.com/NucleoidJS/DataStore
+### What is the On-Chain Data Store?
 
-## What is On-Chain Data Store?
+Nucleoid has a built-in on-chain data store persists sequent transactions with the blockchain style encryption. Each transaction is sequentially encrypted with each other and the data store saves those hashes in managed-files. Each transaction is completed in sub-millisecond and any changes in hashes throws an error so that the final state of objects is guaranteed, and objects cannot be visible without unchanged hashes and the initial key.
 
-Nucleoid's built-in on-chain data store persists sequent transactions with the blockchain style encryption. Each transaction is sequentially encrypted with each other and the data store saves those hashes in managed-files. Each transaction is completed in sub-millisecond and any changes in hashes throws an error so that the final state of objects is guaranteed, and objects cannot be visible without unchanged hashes and the initial key.
+#### How is a hash generated?
 
-### How is hash generated?
-
-It uses hard-coded genesis token as a first hash in the chain. As it receives more transactions, the data store uses the previous hash as well as the key to generate next hash in the chain. It uses Node.js built-in crypto package with a configurable algorithm.
+It uses the hard-coded genesis token as a first hash in the chain. As it receives more transactions, the data store uses the previous hash as well as the key to generate next hash in the chain. It uses Node.js built-in crypto package with a configurable algorithm.
 
 Example of on-chain data in managed-files `~/.nuc/data/`:
 
@@ -36,12 +34,14 @@ dc2d6d47071db41845fa8631b131bef5:0ec5427dd957ccb46fbd6884290eb0de9696102405fc606
 Each call to the runtime is considered a transaction even though it contains multiple statements, and it rolls back all transaction if there is an error thrown.
 
 ```javascript
-a = 1;
-b = a + 2;
-c = b + 3;
+nucleoid.run(() => {
+  a = 1;
+  b = a + 2;
+  c = b + 3;
+});
 ```
 
-The runtime returns something like this, which contains result if any, timestamp and the transaction hash, and those hashes are stored in the data store as a part of transaction.
+The runtime returns something like this, which contains result if any, timestamp and a transaction hash, and those hashes are stored in the data store as a part of transaction.
 
 ```json
 {
@@ -53,7 +53,7 @@ The runtime returns something like this, which contains result if any, timestamp
 
 > Important different is the on-chain data store doesn't store value, instead of transaction like in CQRS, Event Store etc. and it is expected that the runtime builds up values in memory along with. This algorithm provides fast-read and fast-write with larger space complexity as well as requiring computing values in memory at boot up as a trade off.
 
-For example, this table is built in the memory as a part of transaction, but transactions
+For example, this table is built in the memory as a part of transaction:
 
 **Values in Memory**
 
@@ -65,7 +65,7 @@ For example, this table is built in the memory as a part of transaction, but tra
 
 **Transaction in Data Store**
 
-:point_down: This is decoded transaction objects:
+but actual transactions looks like this :point_down: (This is decoded transaction objects though):
 
 ```
 { "s": "var a = 1" ... }
@@ -75,21 +75,21 @@ For example, this table is built in the memory as a part of transaction, but tra
 
 ## Scalability and CAP Support
 
-Each Nucleoid instance runs in its own process and more than one instances can be run in the same machine.
+Nucleoid follows single-threaded multi-process paradigm. Each Nucleoid instance runs in its own process and more than one instances can be run in the same machine.
 
-Nucleoid is not designed for specific scalability model, in fact high plasticity of the runtime supports majority scalability strategies as well as CAP theorem, but we will be focusing on sharding strategy like in MongoDB with additional features with smart sharding.
+Nucleoid is not designed for specific scalability model, in fact high plasticity of the runtime supports majority scalability strategies as well as CAP theorem, but we will be focusing on sharding strategy like in MongoDB and additional features with the smart sharding.
 
 <img src="https://cdn.nucleoid.com/media/scalability.drawio.png" alt="Scalability" width="400" />
 
 ### Smart Sharding
 
-Unlike limited configuration options in major databases, smart sharding instead takes a JavaScript function and lets developers create own scalability policies. The function receives additional data such as request headers, body etc. and it also comes with Nucleoid runtime and its embedded data store, so that the sharding function can persist user data in order to support `memtable` like in Cassandra.
+The smart sharding takes a JavaScript function and lets developers create own scalability policies unlike limited configuration options in major databases. The function receives additional data such as request headers, body etc. and it also comes with Nucleoid runtime along with the built-in data store, so that the sharding function can persist user data in order to support `memtable` like in Cassandra.
 
 ```shell
 npx nucleoidjs start --cluster
 ```
 
-This starts specialized Nucleoid instance and acts like front door the cluster. Default sharding function takes `Process` header from REST and looks up in process list for IP and port information, and cluster instances can be added with calling terminal with `process1 = new Process("127.0.0.1", 8448)`.
+This `npx` command starts specialized Nucleoid instance and acts like front door to the cluster. Default sharding function takes `Process` header from REST and looks up in process list for IP and port information, and cluster instances can be added with calling terminal with `process1 = new Process("127.0.0.1", 8448)`.
 
 Default function can be altered with including a function in `~/.nuc/handlers/cluster.js` and returning process id from the function. For example:
 
@@ -120,25 +120,23 @@ https://nucleoid.com/ide/sample
 
 https://github.com/NucleoidJS/benchmark
 
-This does not necessary mean Nucleoid runtime is faster than MySQL or Postgres, in fact many DBs in production require constant maintenance by DBA team with adjusting indexing, caching, purging etc.
+This does not necessary mean Nucleoid runtime is faster than MySQL or Postgres, instead many DBs in production require constant maintenance by DBA team with adjusting indexing, caching, purging etc. but Nucleoid tries to solve this problem with managing logic and data internally.
 
 For average complexity applications, Nucleoid performance is close to linear because of on-chain data store as well as in-memory computing model. Again, thanks to declarative programming, Nucleoid low-code framework manages technical details while developers focus on business logic.
 
 ## Streaming
 
-The same as the cluster handler, a streaming handler can be added in `~/.nuc/handlers/stream.js`. This handler is called at the end of transaction with a transaction hash. This is for streaming hash in sequence to external databases or cloud platforms and happens almost real-time.
+The same as the cluster handler, a streaming handler can be added in `~/.nuc/handlers/stream.js`. This handler is called at the end of transaction with a transaction hash. This is for streaming hash in sequence to external databases or cloud platforms and happens "almost" real-time.
 
 ```javascript
 // stream.js
 const AWS = require("aws-sdk");
 const kinesis = new AWS.Kinesis();
 
-function stream() {
-  kinesis.putRecord(recordParams, function (err, data) {
+function stream(hash) {
+  kinesis.putRecord(hash, function (err, data) {
     if (err) {
-      log.error(err);
-    } else {
-      log.info("Successfully sent data to Kinesis.");
+      console.error(err);
     }
   });
 }
@@ -148,7 +146,7 @@ module.export = stream;
 
 ### Cloud Integration
 
-Nucleoid runtime treats transaction as a data, so that if transactions are rebuilt at the runtime, the application will contain logic and data without requiring external database. Streaming handlers are used if Nucleoid instance needed to be rebuilt in case of when migration, failovers, disaster recovery needed.
+In Nucleoid, the runtime system views each transaction as data and uses it to create the application, which includes both logic and data. This means that if the Nucleoid instance needs to be reconstructed, such as during migration, failovers, or disaster recovery, the system uses streaming handlers to rebuild the application by replaying the transactions. This ensures that the logic and data are in sync, even after a reboot of the system. The use of transactions as the fundamental building block of the application allows Nucleoid to simplify the overall architecture and increase the speed and efficiency of the system.
 
 In this particular example:
 
