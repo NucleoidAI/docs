@@ -6,7 +6,7 @@ sidebar_position: 1
 
 [![npm](https://img.shields.io/npm/v/nucleoidjs)](https://www.npmjs.com/package/nucleoidjs) [![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/nucleoidjs/nucleoid/test.yml?branch=main)](https://github.com/NucleoidJS/Nucleoid/actions/workflows/test.yml)
 
-In Nucleoid, the deterministic AI is used to track the statements in the code and create a graph of the relationships between variables, objects, and functions. The runtime is embedded inside Node.js and installed through `npm` without requiring to install external database.
+Nucleoid is an implementation of symbolic AI for declarative (logic) programming at the runtime and tracks given statements in JavaScript and creates relationships between variables, objects, and functions etc. in the graph. The runtime is embedded inside Node.js and installed through `npm` without requiring to install external database.
 
 ```shell
 > npm install nucleoidjs
@@ -46,7 +46,7 @@ app.post("/items", (req) => {
 
 That is all you need :heart:
 
-Nucleoid runtime builds an execution plan based on the dependencies in your business logic and store each transaction in built-in data store.
+Nucleoid runtime builds an execution plan based on the dependencies in your business logic and stores each transaction in the built-in data store.
 
 <img src="https://cdn.nucleoid.com/media/graph.png" width="500"/>
 
@@ -62,6 +62,7 @@ Nucleoid IDE is a web interface that helps to run very same npm package with Ope
 
 [Go to Nucleoid IDE](https://nucleoid.com/ide/)
 
-![Nucleoid IDE 1](https://cdn.nucleoid.com/media/screenshot-1.png)
-
-![Nucleoid IDE 2](https://cdn.nucleoid.com/media/screenshot-2.png)
+<p align="center">
+  <img src="https://cdn.nucleoid.com/media/screenshot-1.png" alt="Nucleoid IDE Screenshot 1" width="650"/>
+  <img src="https://cdn.nucleoid.com/media/screenshot-2.png" alt="Nucleoid IDE Screenshot 2" width="650"/>
+</p>

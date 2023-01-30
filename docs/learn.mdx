@@ -8,15 +8,24 @@ sidebar_position: 2
 
 ## What is Nucleoid?
 
-Nucleoid is a low-code framework for JavaScript and embedded inside Node.js. As writing just like any other codes in
-Node.js, it rerenders the very same JavaScript codes and makes the necessary adjustments in the state as well as stores
-on the disk, so that your application doesn't require external database or anything else.
+Nucleoid is a low-code framework, which uses symbolic AI, tracks given statements in JavaScript and creates
+relationships between variables, objects, and functions etc. in the graph. So, as writing just like any other codes in
+Node.js, the runtime translates your business logic to fully working application by managing the JS state as well as
+stores in the built-in data store, so that your application doesn't require external database or anything else.
 
 ### ..but why?
 
-Even simple applications today require lots of coding, libraries, tuning etc., and majority of them are technical
-requirements rather than business logic. Declarative runtimes like Nucleoid lets you immediately start writing business
-logic with less code lines.
+Even simple applications today require lots of coding, libraries, tuning etc., and the majority of them are technical
+requirements rather than business logic. The declarative programming approach used by Nucleoid abstracts away the
+technical details and allows developers to write code that expresses the desired behavior without needing to worry
+about low-level implementation details.
+
+Nucleoid reduces the number of code lines required to build an application by providing a declarative runtime
+environment. The environment allows developers to declaratively describe the behavior of their program, rather than
+writing out all the technical instructions required to implement the behavior. This means that developers can focus on
+defining the desired behavior of their program, rather than writing low-level technical instructions,
+leading to more concise and manageable code, which also aligns with modern software development methodologies that focus
+on functional requirements and encapsulating technical details.
 
 ## Hello World
 
@@ -24,20 +33,33 @@ logic with less code lines.
 const nucleoid = require("nucleoidjs");
 const app = nucleoid();
 
-class User {
-  constructor(name) {
+class Item {
+  constructor(name, barcode) {
     this.name = name;
+    this.barcode = barcode;
   }
 }
-nucleoid.register(User);
+nucleoid.register(Item);
 
-// 👇 This is it!
-app.post("/users", () => new User("Daphne"));
+// 👍 Only needed a business logic and 💖
+// "Create an item with given name and barcode,
+// but the barcode must be unique"
+app.post("/items", (req) => {
+  const barcode = req.body.barcode;
+
+  const check = Item.find((i) => i.barcode === barcode);
+
+  if (check) {
+    throw "DUPLICATE_BARCODE";
+  }
+
+  return new Item(name, barcode);
+});
 
 app.listen(3000);
 ```
 
-You've successfully persisted your first object only with this :point_up_2:
+You run your business logic and successfully persisted your object only with this :point_up_2:
 
 > Just the reminder, you don't need external database, `const app = nucleoid()` will do the magic.
 
@@ -139,7 +161,7 @@ app.post("/test", () => new Order("ITEM-123", 3));
 > :bulb: `id` of object is always the same to its global `var` so that either can be used to retrieve the object like
 > `Order["order0"]` and `order0`.
 
-<br/>
+<br />
 
 if object assigned to either `let` or `const`, the runtime will create `var` variable the same as its `id`
 
@@ -176,7 +198,7 @@ app.post("/test", () => {
 });
 ```
 
-<br/>
+<br />
 
 or it can be part of `let` or `const`
 
@@ -188,7 +210,7 @@ app.post("/test", () => {
 });
 ```
 
-<br/>
+<br />
 
 They will be part of JSON when retrieved as in standard JavaScript
 
@@ -261,14 +283,18 @@ console.log(user);
 
 Nucleoid also opens terminal channel at `8448` port for queries like in SQL, so that you can write code snippet for data operations
 
-<img src="https://media.giphy.com/media/aGQyuZ4ggB4SaPRc1g/giphy.gif" alt="Terminal" width="350"/>
+<img
+  src="https://media.giphy.com/media/aGQyuZ4ggB4SaPRc1g/giphy.gif"
+  alt="Terminal"
+  width="350"
+/>
 
-import { DiscussionEmbed } from 'disqus-react';
+import { DiscussionEmbed } from "disqus-react";
 
 <DiscussionEmbed
-    shortname="nucleoidjs"
-    config={{
-      identifier: "learn-1",
-      title: "Nucleoid: Low-code framework for JS",
-    }}
+  shortname="nucleoidjs"
+  config={{
+    identifier: "learn-1",
+    title: "Nucleoid: Low-code framework for JS",
+  }}
 />
