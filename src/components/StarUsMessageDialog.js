@@ -22,6 +22,10 @@ const StarUsMessageDialog = () => {
   };
 
   const handleClickStarUsButton = () => {
+    window.gtag("event", "click_github", {
+      page_location: window.location.href,
+      page_path: window.location.pathname,
+    });
     window.open("https://github.com/NucleoidJS/Nucleoid", "_blank");
   };
 
