@@ -11,11 +11,11 @@ One important objective of Nucleoid project is to combine logic and data under t
 
 ### What is the On-Chain Data Store?
 
-Nucleoid has a built-in on-chain data store persists sequent transactions with the blockchain style encryption. Each transaction is sequentially encrypted with each other and the data store saves those hashes in managed-files. Each transaction is completed in sub-millisecond and any changes in hashes throws an error so that the final state of objects is guaranteed, and objects cannot be visible without unchanged hashes and the initial key.
+Nucleoid has a built-in on-chain data store persists sequent transactions with the blockchain style encryption. Each transaction is sequentially encrypted with each other and the data store saves those hashes in managed-files. Each transaction is completed in sub-millisecond and any changes in hashes throws an error so that the final state of objects is guaranteed, and objects cannot be visible without ordered hashes and the initial key.
 
 #### How is a hash generated?
 
-It uses the hard-coded genesis token as a first hash in the chain. As it receives more transactions, the data store uses the previous hash as well as the key to generate next hash in the chain. It uses Node.js built-in crypto package with a configurable algorithm.
+The runtime uses the hard-coded genesis token as a first hash in the chain. As it receives more transactions, the data store uses the previous hash as well as the key to generate next hash in the chain. It uses Node.js built-in crypto package with a configurable algorithm.
 
 Example of on-chain data in managed-files `~/.nuc/data/`:
 
@@ -31,7 +31,7 @@ dc2d6d47071db41845fa8631b131bef5:0ec5427dd957ccb46fbd6884290eb0de9696102405fc606
 
 ## Transactions
 
-Each call to the runtime is considered a transaction even though it contains multiple statements, and it rolls back all transaction if there is an error thrown.
+Each call to the runtime is considered a transaction even though it contains multiple statements, and it rolls back the transaction if there is an error thrown.
 
 ```javascript
 nucleoid.run(() => {
@@ -41,7 +41,7 @@ nucleoid.run(() => {
 });
 ```
 
-The runtime returns something like this, which contains result if any, timestamp and a transaction hash, and those hashes are stored in the data store as a part of transaction.
+The runtime returns something like this; result (if any), timestamp and a transaction hash.
 
 ```json
 {
@@ -51,7 +51,7 @@ The runtime returns something like this, which contains result if any, timestamp
 }
 ```
 
-> Important different is the on-chain data store doesn't store value, instead of transaction like in CQRS, Event Store etc. and it is expected that the runtime builds up values in memory along with. This algorithm provides fast-read and fast-write with larger space complexity as well as requiring computing values in memory at boot up as a trade off.
+> Important different is the on-chain data store doesn't store value, instead it persists transactions like in CQRS, Event Store etc. and it is expected that the runtime builds up values in memory along with. This algorithm provides fast-read and fast-write with larger space complexity as well as requiring computing values in memory at boot up as a trade off.
 
 For example, this table is built in the memory as a part of transaction:
 
@@ -65,7 +65,7 @@ For example, this table is built in the memory as a part of transaction:
 
 **Transaction in Data Store**
 
-but actual transactions looks like this :point_down: (This is decoded transaction objects though):
+but actual the data store looks like this :point_down: (This is decoded transaction objects though):
 
 ```
 { "s": "var a = 1" ... }
@@ -89,9 +89,9 @@ The smart sharding takes a JavaScript function and lets developers create own sc
 npx nucleoidjs start --cluster
 ```
 
-This `npx` command starts specialized Nucleoid instance and acts like front door to the cluster. Default sharding function takes `Process` header from REST and looks up in process list for IP and port information, and cluster instances can be added with calling terminal with `process1 = new Process("127.0.0.1", 8448)`.
+This `npx` command starts specialized Nucleoid instance and acts like a front door to the cluster. The default sharding function takes `Process` header from REST and looks up in process list for IP and port information, and cluster instances can be added with calling terminal with `process1 = new Process("127.0.0.1", 8448)`.
 
-Default function can be altered with including a function in `~/.nuc/handlers/cluster.js` and returning process id from the function. For example:
+The default function can be altered with including a function in `~/.nuc/handlers/cluster.js` and returning process id from the function. For example:
 
 ```javascript
 // cluster.js
@@ -116,13 +116,13 @@ https://nucleoid.com/ide/sample
 
 <img src="https://cdn.nucleoid.com/media/benchmark.png" alt="Benchmark" width="550" />
 
-> Performance benchmark happened in t2.micro of AWS EC2 instance and both databases had dedicated server with no indexes and default configurations.
+> Performance benchmark is run in t2.micro of AWS EC2 instance and both databases had dedicated servers with no indexes and default configurations.
 
 https://github.com/NucleoidJS/benchmark
 
 This does not necessary mean Nucleoid runtime is faster than MySQL or Postgres, instead many DBs in production require constant maintenance by DBA team with adjusting indexing, caching, purging etc. but Nucleoid tries to solve this problem with managing logic and data internally.
 
-For average complexity applications, Nucleoid performance is close to linear because of on-chain data store as well as in-memory computing model. Again, thanks to declarative programming, Nucleoid low-code framework manages technical details while developers focus on business logic.
+For average complexity applications, Nucleoid performance is close to linear because of on-chain data store, in-memory computing model as well as limiting the IO process. Again, thanks to declarative programming, Nucleoid low-code framework manages technical details while developers focus on business logic.
 
 ## Streaming
 
