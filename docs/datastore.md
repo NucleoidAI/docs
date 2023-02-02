@@ -122,7 +122,7 @@ https://github.com/NucleoidJS/benchmark
 
 This does not necessary mean Nucleoid runtime is faster than MySQL or Postgres, instead many DBs in production require constant maintenance by DBA team with adjusting indexing, caching, purging etc. but Nucleoid tries to solve this problem with managing logic and data internally.
 
-For average complexity applications, Nucleoid performance is close to linear because of on-chain data store, in-memory computing model as well as limiting the IO process. Again, thanks to declarative programming, Nucleoid low-code framework manages technical details while developers focus on business logic.
+For applications with average complexity, Nucleoid's performance is close to linear because of on-chain data store, in-memory computing model as well as limiting the IO process. Again, thanks to declarative programming, Nucleoid low-code framework manages technical details while developers focus on business logic.
 
 ## Streaming
 
