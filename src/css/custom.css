@@ -1,3 +1,17 @@
+html[data-theme="dark"] {
+  --ifm-color-primary: #00a76f;
+  --ifm-color-primary-dark: #007867;
+  --ifm-color-primary-darker: #004b50;
+  --ifm-color-primary-darkest: #003768;
+  --ifm-color-primary-light: #5be49b;
+  --ifm-color-primary-lighter: #c8fad6;
+  --ifm-color-primary-lightest: #cafdf5;
+  --ifm-background-color: #1c2128;
+  --ifm-background-surface-color: #22272e;
+  --ifm-color-content: #ffffff;
+  --ifm-color-content-secondary: #adbac7;
+}
+
 :root {
   --ifm-font-family-base: Roboto;
 }
