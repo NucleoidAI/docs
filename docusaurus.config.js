@@ -49,8 +49,8 @@ const config = {
     ({
       colorMode: {
         defaultMode: "light",
-        disableSwitch: true,
-        respectPrefersColorScheme: false,
+        disableSwitch: false,
+        respectPrefersColorScheme: true,
       },
       navbar: {
         items: [
