@@ -9,7 +9,7 @@ import { Box, IconButton } from "@mui/material";
 function Footer() {
   return (
     <footer>
-      <Box className="footer">
+      <Box className={"footer"}>
         <WeekCalendar />
         Nucleoid
         <Box>

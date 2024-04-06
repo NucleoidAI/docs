@@ -1,5 +1,6 @@
-const lightCodeTheme = require("prism-react-renderer/themes/github");
-const darkCodeTheme = require("./src/theme/codeTheme");
+const lightCodeTheme = require("prism-react-renderer/themes/vsLight");
+const darkCodeTheme = require("prism-react-renderer/themes/vsDark");
+
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: "Nucleoid",
