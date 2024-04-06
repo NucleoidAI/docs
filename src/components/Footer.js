@@ -3,27 +3,13 @@ import React from "react";
 import StarUsMessageDialog from "./StarUsMessageDialog";
 import TwitterIcon from "@mui/icons-material/Twitter";
 import WeekCalendar from "../components/WeekCalendar";
-import { makeStyles } from "@mui/styles";
+
 import { Box, IconButton } from "@mui/material";
 
-const useStyles = makeStyles(() => ({
-  footer: {
-    color: "#a9a9a9",
-    fontSize: 16,
-    padding: 16,
-    background: "#343e48",
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-  },
-}));
-
 function Footer() {
-  const classes = useStyles();
-
   return (
     <footer>
-      <Box className={classes.footer}>
+      <Box className={"footer"}>
         <WeekCalendar />
         Nucleoid
         <Box>

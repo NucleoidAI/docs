@@ -1,9 +1,44 @@
-:root {
-  --ifm-font-family-base: Roboto;
+html[data-theme="dark"] {
+  --ifm-color-primary: #00a76f;
+  --ifm-color-primary-dark: #007867;
+  --ifm-color-primary-darker: #004b50;
+  --ifm-color-primary-darkest: #003768;
+  --ifm-color-primary-light: #5be49b;
+  --ifm-color-primary-lighter: #c8fad6;
+  --ifm-color-primary-lightest: #cafdf5;
+  --ifm-background-color: #1c2128;
+  --ifm-background-surface-color: #22272e;
+  --ifm-color-content: #ffffff;
+  --ifm-color-content-secondary: #adbac7;
+  --ifm-navbar-background-color: #22272e;
+  --ifm-footer-background-color: #22272e;
+  --ifm-footer-color: #a9a9a9;
+  --ifm-footer-link-color: #ffffff;
 }
 
+:root {
+  --ifm-font-family-base: Roboto;
+  --ifm-navbar-background-color: #323a40;
+  --ifm-footer-background-color: #343e48;
+  --ifm-footer-color: #a9a9a9;
+  --ifm-footer-link-color: #ffffff;
+}
+
+.footer {
+  color: var(--ifm-footer-color);
+  font-size: 16px;
+  padding: 16px;
+  background-color: var(--ifm-footer-background-color);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.footer-icon-button {
+  fill: var(--ifm-footer-link-color);
+}
 .navbar {
-  background: #323a40;
+  background: var(--ifm-navbar-background-color);
 }
 
 .navbar-sidebar {
