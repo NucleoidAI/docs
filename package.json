@@ -33,6 +33,7 @@
     "react-gist": "^1.2.4",
     "react-markdown": "^7.1.2",
     "react-markdown-heading": "^1.4.0",
+    "react-player": "^2.16.0",
     "react-syntax-highlighter": "^15.4.5",
     "rehype-raw": "^6.1.1",
     "remark-gfm": "^3.0.1"
