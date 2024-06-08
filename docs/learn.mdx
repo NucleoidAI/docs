@@ -186,6 +186,19 @@ app.get("/test", () => {
 
 Classes require to be registered before used in Nucleoid:
 
+Terminal:
+
+```shell
+> class Order {
+    constructor(item, qty) {
+      this.item = item;
+      this.qty = qty;
+    }
+  }
+```
+
+API:
+
 ```javascript
 class Order {
   constructor(item, qty) {
@@ -201,6 +214,16 @@ nucleoid.register(Order);
 
 The same thing for objects, once initiated and assigned to the `var` variable as well as it stored.
 
+Terminal:
+
+```shell
+> var order = new Order("ITEM-123", 3);
+> order
+{ id: 'order0', item: 'ITEM-123', qty: 3 }
+```
+
+API:
+
 ```javascript
 app.post("/orders", () => {
   var order = new Order("ITEM-123", 3);
@@ -209,6 +232,15 @@ app.post("/orders", () => {
 ```
 
 and it can retrieve by its `var` variable as mentioned earlier.
+
+Terminal:
+
+```shell
+> order
+{ id: 'order0', item: 'ITEM-123', qty: 3 }
+```
+
+API:
 
 ```javascript
 app.get("/orders", () => {
@@ -225,6 +257,15 @@ app.get("/orders", () => {
 ```
 
 if object initiated without assigning `var` variable, the runtime automatically assign `var` variable along with `id`
+
+Terminal:
+
+```shell
+> new Order("ITEM-123", 3)
+{ id: 'order1', item: 'ITEM-123', qty: 3 }
+```
+
+API:
 
 ```javascript
 app.post("/test", () => new Order("ITEM-123", 3));
@@ -245,6 +286,16 @@ app.post("/test", () => new Order("ITEM-123", 3));
 
 if object assigned to either `let` or `const`, the runtime will create `var` variable the same as its `id`
 
+Terminal:
+
+```shell
+> const order = new Order("ITEM-123", 3);
+> order
+{ id: 'order2', item: 'ITEM-123', qty: 3 }
+```
+
+API:
+
 ```javascript
 app.post("/orders", () => {
   const order = new Order("ITEM-123", 3);
@@ -262,6 +313,15 @@ app.post("/orders", () => {
 
 Now, it can use its `id` as `var` in order to retrieve the object
 
+Terminal:
+
+```shell
+> order1
+{ id: 'order2', item: 'ITEM-123', qty: 3 }
+```
+
+API:
+
 ```javascript
 app.get("/test", () => order1);
 ```
@@ -269,6 +329,17 @@ app.get("/test", () => order1);
 ## Properties
 
 Properties can be defined as part of its `var`, and it will store along with object.
+
+Terminal:
+
+```shell
+> var order = new Order("ITEM-123", 3);
+> order.details = "some details";
+> order
+{ id: 'order0', item: 'ITEM-123', qty: 3, details: 'some details' }
+```
+
+API:
 
 ```javascript
 app.post("/test", () => {
@@ -282,6 +353,17 @@ app.post("/test", () => {
 
 or it can be part of `let` or `const`
 
+Terminal:
+
+```shell
+> const order = new Order("ITEM-123", 3);
+> order.details = "some details";
+> order
+{ id: 'order1', item: 'ITEM-123', qty: 3, details: 'some details' }
+```
+
+API:
+
 ```javascript
 app.post("/test", () => {
   const order = new Order("ITEM-123", 3);
@@ -293,6 +375,15 @@ app.post("/test", () => {
 <br />
 
 They will be part of JSON when retrieved as in standard JavaScript
+
+Terminal:
+
+```shell
+> order1
+{ id: 'order1', item: 'ITEM-123', qty: 3, details: 'some details' }
+```
+
+API:
 
 ```javascript
 app.get("/test", () => order1);
@@ -308,6 +399,21 @@ app.get("/test", () => order1);
 ```
 
 or can be part of constructor as seen in previous examples
+
+Terminal:
+
+```shell
+> class Order {
+    constructor(item, qty) {
+      this.item = item;
+      this.qty = qty;
+    }
+  }
+> new Order("ITEM-123", 3)
+{ id: 'order2', item: 'ITEM-123', qty: 3 }
+```
+
+API:
 
 ```javascript
 class Order {
@@ -325,6 +431,26 @@ app.post("/test", () => new Order("ITEM-123", 3));
 
 Once a class registered, the runtime creates list of instance under its name. For example:
 
+Terminal:
+
+```shell
+> class User {
+    constructor(username) {
+      this.username = username;
+      this.active = true;
+      this.created = Date.now();
+    }
+  }
+> new User("test")
+{ id: 'user0', username: 'test', active: true, created: 1633123200000 }
+> User.filter((u) => u.active == true)
+[{ id: 'user0', username: 'test', active: true, created: 1633123200000 }]
+> User.find((u) => u.username == "test")
+[{ id: 'user0', username: 'test', active: true, created: 1633123200000 }]
+```
+
+API:
+
 ```javascript
 class User {
   constructor(username) {
@@ -339,42 +465,31 @@ nucleoid.register(User);
 app.get("/users", () => User.filter((u) => u.active == true));
 
 // Retrieves the student     👇
-app.get("/users", () => User.find((u) => u.username == "canmingir"));
+app.get("/users", () => User.find((u) => u.username == "test"));
 ```
 
 or lodash functions can be used :partying_face:
+
+Terminal:
+
+```shell
+> _.map(User, (u) => ({ x: u.username }))
+[{ x: 'test' }]
+```
+
+API:
 
 ```javascript
 app.get("/users", () => _.map(User, (u) => ({ x: u.username })));
 ```
 
-## Scope
+## Scope (API only)
 
 Nucleoid can be used without built-in API routes as well, but in order to do that, outside data needs to pass in as a
-scope in your project an call `nucleoid.run( fn )` and it will return the value.
+scope in your project a call `nucleoid.run( fn )` and it will return the value.
 
 ```javascript
 const scope = { userId: "USER-1" };
 const user = nucleoid.run((scope) => new User(scope.userId), scope);
 console.log(user);
 ```
-
-## Terminal
-
-Nucleoid also opens terminal channel at `8448` port for queries like in SQL, so that you can write code snippet for data operations
-
-<img
-  src="https://media.giphy.com/media/aGQyuZ4ggB4SaPRc1g/giphy.gif"
-  alt="Terminal"
-  width="350"
-/>
-
-import { DiscussionEmbed } from "disqus-react";
-
-<DiscussionEmbed
-  shortname="nucleoidjs"
-  config={{
-    identifier: "learn-1",
-    title: "Nucleoid: Low-code framework for JS",
-  }}
-/>
