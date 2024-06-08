@@ -1,7 +1,10 @@
-FROM node:16
+FROM node:18
 
-COPY build /home/app/docs/
+WORKDIR /app
 
-EXPOSE 80
+COPY build build
+COPY config.js config.mjs
 
-ENTRYPOINT npx -y serve -n -p 80 /home/app/
+EXPOSE 3000
+
+ENTRYPOINT npx @nucleoidjs/http-server start build
