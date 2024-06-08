@@ -2,67 +2,136 @@
 sidebar_position: 2
 ---
 
+import ReactPlayer from "react-player";
+
 # Learn
 
 [![NPM](https://img.shields.io/npm/l/nucleoidjs)](https://www.apache.org/licenses/LICENSE-2.0) [![npm](https://img.shields.io/npm/v/nucleoidjs)](https://www.npmjs.com/package/nucleoidjs)
 
-## What is Nucleoid?
+## Introduction
 
-Nucleoid is a low-code framework, which uses symbolic AI, tracks given statements in JavaScript and creates
-relationships between variables, objects, and functions etc. in the graph. So, as writing just like any other codes in
-Node.js, the runtime translates your business logic to fully working application by managing the JS state as well as
-storing in the built-in data store, so that your application doesn't require external database or anything else.
+Nucleoid is **D**eclarative (**L**ogic) **R**untime **E**nvironment. D(L)RE functions as a reasoning engine by implementing symbolic AI through declarative (logic-based) programming. Nucleoid runtime tracks given statements in JavaScript and creates relationships between variables, objects, and functions etc. in the logic graph.
 
-### ..but why?
+Just like writing any other code in Node.js, the runtime translates your business logic into a fully functioning application by managing the JavaScript state and utilizing a built-in data store, so you don't need an external database or anything else.
 
-Even simple applications today require lots of coding, libraries, tuning etc., and the majority of them are technical
-requirements rather than business logic. The declarative programming approach used by Nucleoid abstracts away the
-technical details and allows developers to write code that expresses the desired behavior without needing to worry
-about low-level implementation details.
+## What is Neuro-Symbolic AI?
 
-Nucleoid reduces the number of code lines required to build an application by providing a declarative runtime
-environment. The environment allows developers to declaratively describe the behavior of their program, rather than
-writing out all the technical instructions required to implement the behavior. This means that developers can focus on
-defining the desired behavior of their program, rather than writing low-level technical instructions,
-leading to more concise and manageable code, which also aligns with modern software development methodologies that focus
-on functional requirements and encapsulating technical details.
+Neuro-Symbolic AI is an emerging field that combines two major approaches in artificial intelligence: neural networks and symbolic AI. Here’s a breakdown of what each component represents and how they're integrated in neuro-symbolic AI:
+
+- Neural Networks: These are a cornerstone of deep learning, which mimics the human brain's interconnected neuron structure to process data. Neural networks excel at handling raw data inputs, learning from vast amounts of data, and identifying patterns. They are particularly good at tasks like image recognition, speech processing, and language translation.
+- Symbolic AI: This approach involves the use of high-level, human-readable symbols to represent problems and logic to solve them. Symbolic AI is based on rules and knowledge representation, making it excellent for reasoning, planning, and executing tasks that require a clear, defined set of rules or knowledge base.
+
+### Neural Networks: The Learning Component
+
+Neural networks are highly effective at identifying patterns, relationships, and characteristics within extensive datasets. These networks excel in tasks related to classification, prediction, and recognizing patterns, making them especially useful for handling unstructured data like images, text, and audio. Through their ability to learn from examples, neural networks can generalize and grasp intricate data structures and subtle variations in the data.
+
+### Symbolic AI: The Reasoning Component
+
+The symbolic component of Neuro-Symbolic AI focuses on logic, rules, and symbolic representations of knowledge. Unlike neural networks that learn from data, symbolic AI uses predefined rules and knowledge bases to perform reasoning, make inferences, and understand relationships between entities. This aspect of AI is transparent, interpretable, and capable of explaining its decisions and reasoning processes in a way that humans can understand.
+
+<p align="center">
+  <img
+    src="./media/neuro-symbolic.png"
+    width="225"
+    alt="Neuro-Symbolic Diagram"
+  />
+</p>
+
+### Declarative Logic in Symbolic Reasoning
+
+Declarative logic is a subset of declarative programming, a style of building programs that expresses the logic of a computation without describing its control flow. In declarative logic, you state the facts and rules that define the problem domain. The runtime environment or the system itself figures out how to satisfy those conditions or how to apply those rules to reach a conclusion. This contrasts with imperative programming, where the developer writes code that describes the exact steps to achieve a goal.
+
+Symbolic reasoning refers to the process of using symbols to represent problems and applying logical rules to manipulate these symbols and derive conclusions or solutions. In AI and computer science, it involves using symbolic representations for entities and actions, enabling the system to perform logical inferences, decision making, and problem-solving based on the rules and knowledge encoded in the symbols.
+
+By integrating Nucleoid into Neuro-Symbolic AI, the system benefits from enhanced interpretability and reliability. The declarative logic and rules defined in Nucleoid provide clear explanations for the AI's decisions, making it easier for users to understand and trust the system's outputs. Furthermore, the explicit reasoning capabilities help ensure that decisions are made based on logical principles, adding a layer of reliability and consistency to the AI's behavior.
+
+<p align="center">
+  <img src="https://cdn.nucleoid.com/media/graph.png" width="500" />
+</p>
 
 ## Hello World
 
-```javascript
-const nucleoid = require("nucleoidjs");
-const app = nucleoid();
+<p align="center">
+  <ReactPlayer
+    width={"100%"}
+    height={"100%"}
+    controls
+    url={
+      "https://cdn.nucleoid.com/media/05d9251a-9511-4e6e-a57e-8dc7ff99f71c.mp4"
+    }
+  />
+</p>
 
-class Item {
-  constructor(name, barcode) {
+```javascript
+User:
+> 'Define human with name'
+
+Assistant:
+> 'The user requested to define a human with a name using a declarative class'
+
+---
+
+// Ubiquitous Code:
+'use declarative';
+
+class Human {
+  name: string;
+  constructor(name: string) {
     this.name = name;
-    this.barcode = barcode;
   }
 }
-nucleoid.register(Item);
-
-// 👍 Only needed a business logic and 💖
-// "Create an item with given name and barcode,
-// but the barcode must be unique"
-app.post("/items", (req) => {
-  const name = req.body.name;
-  const barcode = req.body.barcode;
-
-  const check = Item.find((i) => i.barcode === barcode);
-
-  if (check) {
-    throw "DUPLICATE_BARCODE";
-  }
-
-  return new Item(name, barcode);
-});
-
-app.listen(3000);
 ```
 
-You run your business logic and successfully persisted your object only with this :point_up_2:
+```javascript
+User:
+> 'All humans are mortal'
 
-> Just the reminder, you don't need external database, `const app = nucleoid()` will do the magic.
+Assistant: All humans are mortal
+> 'All humans were declared as mortal.'
+
+---
+
+// Ubiquitous Code:
+'use declarative';
+
+$Human.mortal = true;
+```
+
+```javascript
+User:
+> 'Create a human with name "Socrates"'
+
+Assistant:
+> 'A human named 'Socrates' was successfully created.'
+
+---
+
+// Ubiquitous Code:
+'use imperative';
+
+var human1 = new Human('Socrates');
+
+// Result: {"id":"human1","name":"Socrates","mortal":true}
+```
+
+```javascript
+User:
+> 'Is human with name 'Socrates' mortal?'
+
+Assistant:
+> 'The human named 'Socrates' was determined to be mortal.'
+
+---
+
+// Ubiquitous Code:
+`use imperative`;
+
+var human1 = new Human('Socrates');
+human1.mortal;
+// Result: true
+```
+
+> :bulb: This executes the business logic and stores the state in the data store. `const app = nucleoid()` manages internal data store without requiring an external database.
 
 ## Setting up
 
@@ -89,6 +158,16 @@ const app = nucleoid();
 
 As defined in JavaScript, variables of `var`, `let` and `const` can be used, but only difference is `var` is stored automatically,
 in meanwhile, `let` and `const` are temporary to its block
+
+Terminal:
+
+```shell
+> var a = 1;
+> a
+1
+```
+
+API:
 
 ```javascript
 app.post("/test", () => {
