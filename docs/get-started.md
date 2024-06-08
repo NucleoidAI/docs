@@ -6,11 +6,17 @@ sidebar_position: 1
 
 [![npm](https://img.shields.io/npm/v/nucleoidjs)](https://www.npmjs.com/package/nucleoidjs) [![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/nucleoidjs/nucleoid/test.yml?branch=main)](https://github.com/NucleoidJS/Nucleoid/actions/workflows/test.yml)
 
-Nucleoid is an implementation of symbolic AI for declarative (logic-based) programming at the runtime and tracks given statements in JavaScript and creates relationships between variables, objects, and functions etc. in the graph. The runtime is embedded inside Node.js and installed through `npm` without requiring to install external database.
+Nucleoid serves as a reasoning engine for neuro-symbolic AI, implementing symbolic AI through declarative (logic-based) programming. Integrated within the Node.js runtime, it observes and manages statements in JavaScript, establishing intricate relationships among variables, objects, and functions in a graph structure. Installation is straightforward via npm, with no need for an external database, enhancing its accessibility and efficiency for neuro-symbolic applications.
 
 ```shell
-> npm install nucleoidjs
+> npx nucleoidai start
 ```
+
+![Terminal Start](/media/terminal-start.png)
+
+![Terminal Start](/media/terminal-postman.png)
+
+![Terminal Start](/media/terminal-ide.png)
 
 Once included in the project, you can initialize as:
 
@@ -61,7 +67,7 @@ app.listen(3000);
 
 Nucleoid IDE is a web interface that helps to run very same npm package with OpenAPI.
 
-[Go to Nucleoid IDE](https://nucleoid.com/ide/)
+[Go to Nucleoid Chat](https://nucleoid.com/ide/chat)
 
 <p align="center">
   <img src="https://cdn.nucleoid.com/media/screenshot-1.png" alt="Nucleoid IDE Screenshot 1" width="650"/>
