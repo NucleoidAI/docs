@@ -86,7 +86,7 @@ Nucleoid is not designed for specific scalability model, in fact high plasticity
 The smart sharding takes a JavaScript function and lets developers create own scalability policies unlike limited configuration options in major databases. The function receives additional data such as request headers, body etc. and it also comes with Nucleoid runtime along with the built-in data store, so that the sharding function can persist user data in order to support `memtable` like in Cassandra.
 
 ```shell
-npx nucleoidjs start --cluster
+npx nucleoidai start --cluster
 ```
 
 This `npx` command starts specialized Nucleoid instance and acts like a front door to the cluster. The default sharding function takes `Process` header from REST and looks up in process list for IP and port information, and cluster instances can be added with calling terminal with `process1 = new Process("127.0.0.1", 8448)`.
@@ -118,7 +118,7 @@ https://nucleoid.com/ide/sample
 
 > Performance benchmark is run in t2.micro of AWS EC2 instance and both databases had dedicated servers with no indexes and default configurations.
 
-https://github.com/NucleoidJS/benchmark
+https://github.com/NucleoidAI/benchmark
 
 This does not necessary mean Nucleoid runtime is faster than MySQL or Postgres, instead many DBs in production require constant maintenance by DBA team with adjusting indexing, caching, purging etc. but Nucleoid tries to solve this problem with managing logic and data internally.
 

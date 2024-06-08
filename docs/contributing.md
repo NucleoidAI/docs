@@ -14,16 +14,16 @@ Learn more at [nucleoid.com/docs/runtime](/docs/runtime/)
 
 ## Code of Conduct
 
-Please read our [Code of Conduct](https://github.com/NucleoidJS/Nucleoid/blob/main/CODE_OF_CONDUCT.md)
+Please read our [Code of Conduct](https://github.com/NucleoidAI/Nucleoid/blob/main/CODE_OF_CONDUCT.md)
 
-## Join our [Thinkers Club](https://github.com/NucleoidJS/Nucleoid/discussions/categories/thinkers-club)
+## Join our [Thinkers Club](https://github.com/NucleoidAI/Nucleoid/discussions/categories/thinkers-club)
 
-If you have an opinion, you are already a philosopher. We are working on brand-new approach to data and logic. Come join us in [discussions](https://github.com/NucleoidJS/Nucleoid/discussions/categories/thinkers-club).
+If you have an opinion, you are already a philosopher. We are working on brand-new approach to data and logic. Come join us in [discussions](https://github.com/NucleoidAI/Nucleoid/discussions/categories/thinkers-club).
 
-[![Nobel](https://cdn.nucleoid.com/media/nobel.png)](https://github.com/NucleoidJS/Nucleoid/discussions/categories/thinkers-club)
+[![Nobel](https://cdn.nucleoid.com/media/nobel.png)](https://github.com/NucleoidAI/Nucleoid/discussions/categories/thinkers-club)
 
 ### Pinned Discussions
 
-[![Discussion 25](https://cdn.nucleoid.com/media/discussion-25x500.png)](https://github.com/NucleoidJS/Nucleoid/discussions/25)
-[![Discussion 26](https://cdn.nucleoid.com/media/discussion-26x500.png)](https://github.com/NucleoidJS/Nucleoid/discussions/26)
-[![Discussion 28](https://cdn.nucleoid.com/media/discussion-28x500.png)](https://github.com/NucleoidJS/Nucleoid/discussions/28)
+[![Discussion 25](https://cdn.nucleoid.com/media/discussion-25x500.png)](https://github.com/NucleoidAI/Nucleoid/discussions/25)
+[![Discussion 26](https://cdn.nucleoid.com/media/discussion-26x500.png)](https://github.com/NucleoidAI/Nucleoid/discussions/26)
+[![Discussion 28](https://cdn.nucleoid.com/media/discussion-28x500.png)](https://github.com/NucleoidAI/Nucleoid/discussions/28)

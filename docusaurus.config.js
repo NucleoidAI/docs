@@ -10,7 +10,7 @@ const config = {
   onBrokenLinks: "warn",
   onBrokenMarkdownLinks: "warn",
   favicon: "https://cdn.nucleoid.com/media/icon.png",
-  organizationName: "NucleoidJS",
+  organizationName: "NucleoidAI",
   projectName: "Nucleoid",
   titleDelimiter: "-",
   i18n: {
@@ -35,7 +35,7 @@ const config = {
         docs: {
           routeBasePath: "/",
           sidebarPath: require.resolve("./sidebars.js"),
-          editUrl: "https://github.com/NucleoidJS/docs/tree/main/",
+          editUrl: "https://github.com/NucleoidAI/docs/tree/main/",
         },
         blog: false,
         theme: {
@@ -69,7 +69,7 @@ const config = {
             position: "right",
           },
           {
-            href: "https://github.com/NucleoidJS/Nucleoid",
+            href: "https://github.com/NucleoidAI/Nucleoid",
             html: require("fs").readFileSync("./github.html", "utf8"),
             position: "right",
           },
