@@ -20,14 +20,14 @@ function Footer() {
           ></IconButton>
           <IconButton
             onClick={() =>
-              window.open("https://twitter.com/NucleoidJS", "_blank")
+              window.open("https://twitter.com/NucleoidAI", "_blank")
             }
           >
             <TwitterIcon style={{ fill: "#ffffff" }} />
           </IconButton>
           <IconButton
             onClick={() =>
-              window.open("https://github.com/NucleoidJS/Nucleoid", "_blank")
+              window.open("https://github.com/NucleoidAI/Nucleoid", "_blank")
             }
           >
             <GitHubIcon style={{ fill: "#ffffff" }} />

@@ -26,7 +26,7 @@ const StarUsMessageDialog = () => {
       page_location: window.location.href,
       page_path: window.location.pathname,
     });
-    window.open("https://github.com/NucleoidJS/Nucleoid", "_blank");
+    window.open("https://github.com/NucleoidAI/Nucleoid", "_blank");
   };
 
   if (!open) {

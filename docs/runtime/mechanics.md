@@ -32,7 +32,7 @@ Important objectives of Nucleoid runtime manages the control flow with graph and
 ## Example
 
 ```javascript
-const nucleoid = require("nucleoidjs");
+const nucleoid = require("nucleoidai");
 
 nucleoid.run(() => {
   var a = 1;
@@ -51,7 +51,7 @@ Here is the logical diagram of the runtime, and let's dive into to details
 
 ![Mechanics](../../static/media/mechanics.drawio.png)
 
-1. When Node.js passes over the function, very first step is the function string is parsed into [`$nuc`](https://github.com/NucleoidJS/Nucleoid/tree/main/src/lang/%24nuc) structure as [CIL](https://en.wikipedia.org/wiki/Common_Intermediate_Language) language, which holds input statements as executable.
+1. When Node.js passes over the function, very first step is the function string is parsed into [`$nuc`](https://github.com/NucleoidAI/Nucleoid/tree/main/src/lang/%24nuc) structure as [CIL](https://en.wikipedia.org/wiki/Common_Intermediate_Language) language, which holds input statements as executable.
 
 > Something keep in mind, every programming language actually works with string and compiles to executable binaries or bytes, one thing is slightly different in the Nucleoid project, all CIL conversion happens at runtime instead of compile time. This gives advantages when manipulating [Control Flow](https://en.wikipedia.org/wiki/Control_flow) and data.
 
@@ -69,7 +69,7 @@ class $FUNCTION extends $ {
 }
 ```
 
-2. After an entry function is converted into `$nuc`, it runs each statement in [`stack.js`](https://github.com/NucleoidJS/Nucleoid/blob/main/src/stack.js), which is the core part of the runtime because the control flow is managed by stack and the stack decides sequence of statement based on the graph. For example:
+2. After an entry function is converted into `$nuc`, it runs each statement in [`stack.js`](https://github.com/NucleoidAI/Nucleoid/blob/main/src/stack.js), which is the core part of the runtime because the control flow is managed by stack and the stack decides sequence of statement based on the graph. For example:
 
 ```javascript
 class Item {

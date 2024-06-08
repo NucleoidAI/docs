@@ -9,7 +9,7 @@ sidebar_position: 3
 Creates application
 
 ```javascript
-const nucleoid = require("nucleoidjs");
+const nucleoid = require("nucleoidai");
 const app = nucleoid();
 ```
 
