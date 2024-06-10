@@ -41,6 +41,7 @@ const StarUsMessageDialog = () => {
           maxWidth: 450,
           margin: 15,
           userSelect: "none",
+          color: "black",
           backgroundColor: "#f5f5f9",
           boxShadow: "1px 2px 3px 1px #aaaaaa",
           borderRadius: 5,
