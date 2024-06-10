@@ -54,7 +54,7 @@ const config = {
       },
       navbar: {
         items: [
-          { to: "/docs/get-started", label: "HOME", position: "left" },
+          { to: "/docs", label: "HOME", position: "left" },
           { to: "/docs/get-started", label: "GET STARTED", position: "left" },
           { to: "/docs/learn", label: "LEARN", position: "left" },
           { to: "/docs/api", label: "API", position: "left" },
@@ -64,7 +64,7 @@ const config = {
             position: "left",
           },
           {
-            href: "https://nucleoid.com/ide/",
+            href: "https://nucleoid.com/ide/chat",
             html: require("fs").readFileSync("./ide.html", "utf8"),
             position: "right",
           },
