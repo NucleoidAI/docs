@@ -7,7 +7,7 @@ description: Get started with Nucleoid, a declarative, logic-based runtime desig
 
 [![npm](https://img.shields.io/npm/v/nucleoidai)](https://www.npmjs.com/package/nucleoidai) [![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/nucleoidai/nucleoid/test.yml?branch=main)](https://github.com/NucleoidAI/Nucleoid/actions/workflows/test.yml)
 
-Nucleoid is a reasoning engine for Neuro-Symbolic AI, implementing symbolic AI through declarative (logic-based) programming. Integrated within the Node.js runtime, it observes and manages statements in JavaScript, establishing intricate relationships among variables, objects, and functions in a graph structure. Installation is straightforward via npm, with no need for an external database, enhancing its accessibility and efficiency for neuro-symbolic applications.
+Nucleoid is a declarative, logic-based runtime designed for Neuro-Symbolic AI, focusing on adaptive reasoning and explainability through the Logic Graph. This runtime environment allows for dynamic relationship mapping between logic and data, supporting both intuitive and rational decision-making processes. Nucleoid runtime integrates neural networks for pattern learning with symbolic AI for logical reasoning, enhancing system interpretability and reliability.
 
 ## Hello World
 
@@ -19,7 +19,7 @@ import ReactPlayer from "react-player";
     height={"100%"}
     controls
     url={
-      "https://cdn.nucleoid.com/media/05d9251a-9511-4e6e-a57e-8dc7ff99f71c.mp4"
+      "https://cdn.nucleoid.com/media/4f509622-3739-4dd1-84ef-8b27116529c0.mp4"
     }
   />
 </p>
@@ -31,6 +31,8 @@ import ReactPlayer from "react-player";
 ```
 
 ![Terminal Start](/media/terminal-start.png)
+
+> :bulb: Nucleoid runtime can also run on local machine with `npx @nucleoidai/ide start` and `npx @nucleoidai/expert start` including [Nucleoid Chat](https://nucleoid.com/ide/chat). These commands enable IDE and expert system components needed for Neuro-Symbolic AI.
 
 ### Terminal
 
