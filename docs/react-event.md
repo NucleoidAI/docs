@@ -1,6 +1,8 @@
 ---
 sidebar_position: 9
 title: react-event
+description: "@nucleoidai/react-event: Event-driven Alternative to React Context"
+canonical_url: https://github.com/NucleoidAI/react-event
 ---
 
 <h1 align="center">react-event</h1>

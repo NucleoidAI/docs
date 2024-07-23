@@ -1,6 +1,8 @@
 ---
 sidebar_position: 4
 title: Built-in Data Store
+description: Nucleoid built-in data store
+canonical_url: https://github.com/NucleoidAI/datastore
 ---
 
 # Built-in Data Store

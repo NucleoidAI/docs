@@ -1,6 +1,7 @@
 ---
 sidebar_position: 5
 title: OpenAPI
+description: Nucleoid OpenAPI integration
 ---
 
 # OpenAPI Integration

@@ -1,6 +1,7 @@
 ---
 sidebar_position: 10
 title: Taxonomy
+description: Nucleoid's Taxonomy
 ---
 
 # Nucleoid's Taxonomy

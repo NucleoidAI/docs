@@ -1,5 +1,6 @@
 ---
 sidebar_position: 1
+description: Get started with Nucleoid, a declarative, logic-based runtime designed for Neuro-Symbolic AI, focusing on adaptive reasoning and explainability through the Logic Graph.
 ---
 
 # Get Started

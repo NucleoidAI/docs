@@ -1,5 +1,6 @@
 ---
 sidebar_position: 4
+description: Nucleoid Runtime Advanced Example
 ---
 
 # Advanced Example

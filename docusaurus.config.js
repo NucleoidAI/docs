@@ -4,7 +4,7 @@ const darkCodeTheme = require("prism-react-renderer/themes/vsDark");
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: "Nucleoid",
-  tagline: "Low-code Framework for Node.js",
+  tagline: "Neuro-Symbolic AI with Logic Graph",
   url: "https://nucleoid.com/",
   baseUrl: "/docs/",
   onBrokenLinks: "warn",
@@ -59,7 +59,7 @@ const config = {
           { to: "/docs/learn", label: "LEARN", position: "left" },
           { to: "/docs/api", label: "API", position: "left" },
           {
-            href: "https://dev.to/nucleoid",
+            to: "https://nucleoid.com/blog",
             label: "BLOG",
             position: "left",
           },

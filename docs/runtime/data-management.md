@@ -1,6 +1,7 @@
 ---
 sidebar_position: 2
 title: Data Management
+description: Nucleoid Data Management
 ---
 
 Another objective of the project is to manage both of data and logic under the same runtime so that external database won't be needed. This also benefits the system structure that automatically lowers complexity of the system as eliminating moving elements.
