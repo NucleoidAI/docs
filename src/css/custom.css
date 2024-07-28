@@ -104,3 +104,16 @@ span.github {
     text-shadow: none;
   }
 }
+
+@media (min-width: 360px) and (max-width: 996px) {
+  div.navbar__items.navbar__items--right > * {
+    display: block;
+    position: inherit;
+  }
+}
+
+@media (min-width: 360px) and (max-width: 996px) {
+  div.ide-button {
+    display: none;
+  }
+}
