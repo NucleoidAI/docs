@@ -5,7 +5,7 @@ export default function LogoWrapper() {
     <>
       <div
         style={{ cursor: "pointer", marginRight: 25 }}
-        onClick={() => (location.href = "/")}
+        onClick={() => (location.href = "https://nucleoid.ai")}
       >
         <span
           style={{
