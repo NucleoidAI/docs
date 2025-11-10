@@ -12,4 +12,5 @@ jobs:
       environment: 'live'
       install_dependencies: true
       run_build: true
-    secrets: inherit
+    secrets: 
+      DOCKER_ACCESS_TOKEN: ${{ secrets.DOCKER_ACCESS_TOKEN }}
