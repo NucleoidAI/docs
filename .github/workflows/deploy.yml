@@ -3,7 +3,13 @@ on:
   push:
     branches: [main]
   workflow_dispatch:
+
 jobs:
-  deploy:
-    uses: NucleoidAI/actions/.github/workflows/deploy.yml@main
+  nucleoid_ai:
+    uses: GreyCollar/GreyCollar/.github/workflows/deploy.yml@main
+    with:
+      service_name: 'nucleoid.docs'
+      environment: 'live'
+      install_dependencies: true
+      run_build: true
     secrets: inherit
